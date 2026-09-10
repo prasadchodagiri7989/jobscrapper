@@ -1,0 +1,10 @@
+Flask>=3.1,<4
+Flask-Cors>=6,<7
+Flask-JWT-Extended>=4.7,<5
+Werkzeug>=3.1,<4
+python-dotenv>=1.0.0
+
+python-jobspy>=1.1.82,<2
+
+pandas>=2.2,<3
+openpyxl>=3.1,<4

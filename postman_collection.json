@@ -1,0 +1,133 @@
+{
+  "info": {
+    "name": "JobSpy Flask SQLite API",
+    "_postman_id": "7a3bb4e2-8f8f-4c21-a9c1-jobspy-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:5000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Signup",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Vamsi\",\"email\":\"vamsi@example.com\",\"password\":\"StrongPassword123\"}"
+            },
+            "url": "{{baseUrl}}/api/auth/signup"
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"vamsi@example.com\",\"password\":\"StrongPassword123\"}"
+            },
+            "url": "{{baseUrl}}/api/auth/login"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "item": [
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "url": "{{baseUrl}}/api/profile"
+          }
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"headline\":\"B.Tech IT Graduate\",\"location\":\"Hyderabad, India\",\"skills\":[\"Python\",\"SQL\",\"ServiceNow\"]}"
+            },
+            "url": "{{baseUrl}}/api/profile"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Scraping",
+      "item": [
+        {
+          "name": "Scrape Jobs",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"search_term\":\"associate software engineer\",\"location\":\"Hyderabad, Telangana, India\",\"sites\":[\"indeed\",\"linkedin\",\"naukri\"],\"results_wanted\":10,\"hours_old\":72,\"country_indeed\":\"India\"}"
+            },
+            "url": "{{baseUrl}}/api/scraping/jobs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "History",
+      "item": [
+        {
+          "name": "All History",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "url": "{{baseUrl}}/api/history"
+          }
+        },
+        {
+          "name": "Search History",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "url": "{{baseUrl}}/api/history/searches"
+          }
+        },
+        {
+          "name": "File History",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "url": "{{baseUrl}}/api/history/files"
+          }
+        },
+        {
+          "name": "Search Jobs",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "url": "{{baseUrl}}/api/history/jobs/1"
+          }
+        }
+      ]
+    }
+  ]
+}
