@@ -491,7 +491,7 @@ def scrape():
         }), 400
 
     try:
-        results_wanted = max(1, min(int(data.get("results_wanted", 10)), 100))
+        results_wanted = max(1, min(int(data.get("results_wanted", 10)), 500))
         hours_old = data.get("hours_old")
         hours_old = int(hours_old) if hours_old not in (None, "") else None
         if hours_old is not None:
